@@ -5,6 +5,7 @@
 struct client
 {
     void hello();
+
 private:
     rpc m_rpc;
 };

@@ -2,7 +2,7 @@
 
 int main()
 {
-    client c {};
+    client c{};
     c.hello();
 
     return 0;
