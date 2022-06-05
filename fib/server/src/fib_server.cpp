@@ -1,12 +1,12 @@
 #include "fib_server.hpp"
 
-#include "grpc_receiver.hpp"
+#include "factory.hpp"
 
 namespace fib
 {
     fib_server::fib_server(std::string address, int port)
-        : m_receiver{ std::make_unique<rpc::grpc_receiver>(std::move(address), port,
-                                                           [&](auto req) { return get_fib(req); }) }
+        : m_receiver{ rpc::factory::make_receiver(rpc::type::grpc, std::move(address), port,
+                                                  [&](auto req) { return get_fib(req); }) }
     {
     }
 

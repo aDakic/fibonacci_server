@@ -1,11 +1,11 @@
 #include "fib_client.hpp"
 
-#include "grpc_sender.hpp"
+#include "factory.hpp"
 
 namespace fib
 {
     fib_client::fib_client(std::string address, int port)
-        : m_sender{ std::make_unique<rpc::grpc_sender>(std::move(address), port) }
+        : m_sender{ rpc::factory::make_sender(rpc::type::grpc, std::move(address), port) }
     {
     }
 

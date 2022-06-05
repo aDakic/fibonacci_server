@@ -28,7 +28,8 @@ set(headers
     src/receiver_base.hpp
     src/sender_base.hpp
     src/grpc_receiver.hpp
-    src/grpc_sender.hpp)
+    src/grpc_sender.hpp
+    src/factory.hpp)
 
 find_package(fmt REQUIRED)
 
