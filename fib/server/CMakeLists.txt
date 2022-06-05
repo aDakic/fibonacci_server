@@ -1,8 +1,8 @@
 set(sources
-    src/server.cpp)
+    src/fib_server.cpp)
 
 set(headers
-    src/server.hpp)
+    src/fib_server.hpp)
 
 add_library(server ${headers} ${sources})
 add_library(${PROJECT_NAME}::server ALIAS server)
