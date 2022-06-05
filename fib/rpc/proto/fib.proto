@@ -14,4 +14,5 @@ message fib_request
 message fib_reply
 {
     string result    = 1;
+    uint64 count     = 2;
 }

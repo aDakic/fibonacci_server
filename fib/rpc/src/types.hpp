@@ -14,6 +14,7 @@ namespace fib::rpc
     struct response
     {
         std::string result;
+        std::uint64_t count;
     };
 
     using rpc_callback = std::function<response(request)>;

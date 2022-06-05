@@ -17,7 +17,16 @@ namespace fib
     rpc::response server::get_fib(rpc::request req)
     {
         const auto result = calculate(req.number);
-        return { std::to_string(result) };
+
+        auto [iter, success] = m_registry.emplace(req.number, 1);
+        auto& count          = iter->second;
+
+        if (!success)
+        {
+            count += 1;
+        }
+
+        return { std::to_string(result), count };
     }
 
     std::uint64_t server::calculate(std::uint64_t number) noexcept
