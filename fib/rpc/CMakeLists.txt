@@ -30,9 +30,11 @@ set(headers
     src/grpc_receiver.hpp
     src/grpc_sender.hpp)
 
+find_package(fmt REQUIRED)
+
 add_library(rpc ${headers} ${sources})
 add_library(${PROJECT_NAME}::rpc ALIAS rpc)
 
 target_include_directories(rpc INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/src)
 target_compile_features(rpc PUBLIC cxx_std_17)
-target_link_libraries(rpc grpc-proto)
+target_link_libraries(rpc grpc-proto fmt::fmt)

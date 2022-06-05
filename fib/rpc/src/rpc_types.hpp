@@ -16,5 +16,5 @@ namespace fib::rpc
         std::string result;
     };
 
-    using rpc_callback = std::function<request(response)>;
+    using rpc_callback = std::function<response(request)>;
 }  // namespace fib::rpc

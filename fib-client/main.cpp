@@ -2,8 +2,8 @@
 
 int main()
 {
-    client c{};
-    c.hello();
+    fib::fib_client client{ "localhost", 5000};
+    client.fib({ 3 });
 
     return 0;
 }

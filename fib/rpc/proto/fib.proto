@@ -1,7 +1,7 @@
 syntax = "proto3";
 package fib.rpc;
 
-service fib
+service fib_grpc
 {
     rpc fib (fib_request) returns (fib_reply) {}
 }

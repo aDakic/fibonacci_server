@@ -1,6 +1,17 @@
 #pragma once
 
-struct client
+#include <memory>
+#include "rpc_sender_base.hpp"
+
+namespace fib
 {
-    void hello();
-};
+    class fib_client
+    {
+    public:
+        fib_client(std::string address, int port);
+        rpc::response fib(rpc::request req);
+
+    private:
+        std::unique_ptr<rpc::rpc_sender_base> m_sender;
+    };
+}  // namespace fib

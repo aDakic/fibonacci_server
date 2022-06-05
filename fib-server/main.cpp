@@ -2,8 +2,12 @@
 
 int main()
 {
-    server s{};
-    s.hello();
+    fib::fib_server server{ "localhost", 5000};
+    server.start();
+
+    getchar();
+
+    server.stop();
 
     return 0;
 }
