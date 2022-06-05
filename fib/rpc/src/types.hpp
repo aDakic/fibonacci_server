@@ -14,6 +14,7 @@ namespace fib::rpc
     struct response
     {
         std::string result;
+        std::int64_t timestamp;
         std::uint64_t count;
     };
 

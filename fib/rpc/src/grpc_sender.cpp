@@ -28,7 +28,7 @@ namespace fib::rpc
         }
         else
         {
-            return { reply.result(), reply.count() };
+            return { reply.result(), reply.timestamp(), reply.count() };
         }
     }
 }  // namespace fib::rpc

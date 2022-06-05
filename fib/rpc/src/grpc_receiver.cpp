@@ -45,10 +45,11 @@ namespace fib::rpc
 
     grpc::Status grpc_receiver::fib(grpc::ServerContext* /*context*/, const fib_request* request, fib_reply* response)
     {
-        const auto number = request->number();
-        auto [result, count]     = m_on_receive({ number });
+        const auto number               = request->number();
+        auto [result, timestamp, count] = m_on_receive({ number });
 
         response->set_result(std::move(result));
+        response->set_timestamp(timestamp);
         response->set_count(count);
 
         return grpc::Status::OK;

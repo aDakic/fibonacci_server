@@ -16,17 +16,18 @@ namespace fib
 
     rpc::response server::get_fib(rpc::request req)
     {
-        const auto result = calculate(req.number);
+        const auto result    = calculate(req.number);
+        const auto timestamp = m_timestamper.elapsed();
 
-        auto [iter, success] = m_registry.emplace(req.number, 1);
-        auto& count          = iter->second;
+        auto [iter, is_new_element] = m_registry.emplace(req.number, 1);
+        auto& count                 = iter->second;
 
-        if (!success)
+        if (!is_new_element)
         {
             count += 1;
         }
 
-        return { std::to_string(result), count };
+        return { std::to_string(result), timestamp, count };
     }
 
     std::uint64_t server::calculate(std::uint64_t number) noexcept

@@ -2,7 +2,9 @@
 
 #include <memory>
 #include <unordered_map>
+
 #include "receiver_base.hpp"
+#include "timestamper.hpp"
 
 namespace fib
 {
@@ -20,6 +22,7 @@ namespace fib
 
         std::unique_ptr<rpc::receiver_base> m_receiver;
         std::unordered_map<std::uint64_t, std::uint64_t> m_registry;
+        timestamper m_timestamper;
     };
 
 }  // namespace fib

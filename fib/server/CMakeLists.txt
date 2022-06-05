@@ -1,7 +1,9 @@
 set(sources
+    src/timestamper.cpp
     src/server.cpp)
 
 set(headers
+    src/timestamper.hpp
     src/server.hpp)
 
 add_library(server ${headers} ${sources})
