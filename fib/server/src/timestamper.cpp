@@ -9,7 +9,6 @@ namespace fib
         {
             return std::chrono::duration_cast<resolution>(clock::now() - m_start_point).count();
         }
-
         else
         {
             m_running     = true;
