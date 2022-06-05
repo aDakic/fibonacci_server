@@ -1,7 +1,8 @@
 #pragma once
 
 #include <memory>
-#include "rpc_sender_base.hpp"
+
+#include "sender_base.hpp"
 
 namespace fib
 {
@@ -12,6 +13,6 @@ namespace fib
         rpc::response fib(rpc::request req);
 
     private:
-        std::unique_ptr<rpc::rpc_sender_base> m_sender;
+        std::unique_ptr<rpc::sender_base> m_sender;
     };
 }  // namespace fib

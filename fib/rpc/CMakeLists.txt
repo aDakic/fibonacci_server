@@ -18,15 +18,15 @@ protobuf_generate(TARGET grpc-proto LANGUAGE grpc GENERATE_EXTENSIONS .grpc.pb.h
 set_target_properties(grpc-proto PROPERTIES CXX_CLANG_TIDY "")
 
 set(sources
-    src/rpc_receiver_base.cpp
-    src/rpc_sender_base.cpp
+    src/receiver_base.cpp
+    src/sender_base.cpp
     src/grpc_receiver.cpp
     src/grpc_sender.cpp)
 
 set(headers
-    src/rpc_types.hpp
-    src/rpc_receiver_base.hpp
-    src/rpc_sender_base.hpp
+    src/types.hpp
+    src/receiver_base.hpp
+    src/sender_base.hpp
     src/grpc_receiver.hpp
     src/grpc_sender.hpp)
 

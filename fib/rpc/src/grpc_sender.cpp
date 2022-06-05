@@ -6,7 +6,7 @@
 namespace fib::rpc
 {
     grpc_sender::grpc_sender(std::string address, int port)
-        : rpc_sender_base{ std::move(address), port },
+        : sender_base{ std::move(address), port },
           m_sender{ fib_grpc::NewStub(
               grpc::CreateChannel(fmt::format("{}:{}", m_ip_address, m_port), grpc::InsecureChannelCredentials())) }
     {

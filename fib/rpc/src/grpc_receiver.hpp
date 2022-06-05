@@ -5,11 +5,11 @@
 
 #include "grpcpp/grpcpp.h"
 #include "proto/fib.grpc.pb.h"
-#include "rpc_receiver_base.hpp"
+#include "receiver_base.hpp"
 
 namespace fib::rpc
 {
-    class grpc_receiver final : public rpc_receiver_base, private fib_grpc::Service
+    class grpc_receiver final : public receiver_base, private fib_grpc::Service
     {
     public:
         grpc_receiver(std::string address, int port, rpc_callback cb);

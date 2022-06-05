@@ -1,12 +1,11 @@
 #pragma once
 
 #include <memory>
-#include "rpc_receiver_base.hpp"
+
+#include "receiver_base.hpp"
 
 namespace fib
 {
-
-
     class fib_server
     {
     public:
@@ -14,11 +13,11 @@ namespace fib
 
         void start();
         void stop();
+
     private:
         rpc::response get_fib(rpc::request req);
 
-        std::unique_ptr<rpc::rpc_receiver_base> m_receiver;
-
+        std::unique_ptr<rpc::receiver_base> m_receiver;
     };
 
-    }
+}  // namespace fib

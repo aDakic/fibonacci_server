@@ -5,7 +5,7 @@
 namespace fib::rpc
 {
     grpc_receiver::grpc_receiver(std::string address, int port, rpc_callback cb)
-        : rpc_receiver_base{ std::move(address), port, std::move(cb) }, m_running{ false }
+        : receiver_base{ std::move(address), port, std::move(cb) }, m_running{ false }
     {
         const auto server_address = fmt::format("{}:{}", m_ip_address, m_port);
         m_builder.AddListeningPort(server_address, grpc::InsecureServerCredentials()).RegisterService(this);

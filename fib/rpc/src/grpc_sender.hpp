@@ -1,11 +1,11 @@
 #pragma once
 
 #include "proto/fib.grpc.pb.h"
-#include "rpc_sender_base.hpp"
+#include "sender_base.hpp"
 
 namespace fib::rpc
 {
-    class grpc_sender : public rpc_sender_base
+    class grpc_sender : public sender_base
     {
     public:
         grpc_sender(std::string address, int port);
