@@ -17,7 +17,7 @@ int main(int argc, char* argv[])
 
         for (const auto& num : prog_ops.numbers)
         {
-            const auto [result, timestamp, count] = client.fib({ num });
+            const auto [result, timestamp, count] = client.fib(fib::rpc::request{ num });
             fmt::print("fib({}): {} timestamp: {} count: {}\n", num, result, timestamp, count);
         }
     }
