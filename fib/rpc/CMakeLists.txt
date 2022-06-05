@@ -7,6 +7,8 @@ set(headers
     src/rpc_receiver_base.hpp
     src/rpc_sender_base.hpp)
 
+add_subdirectory(src/grpc)
+
 add_library(rpc ${headers} ${sources})
 add_library(${PROJECT_NAME}::rpc ALIAS rpc)
 
