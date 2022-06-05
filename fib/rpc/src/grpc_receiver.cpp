@@ -1,6 +1,7 @@
 #include "grpc_receiver.hpp"
 
 #include "fmt/core.h"
+#include "logger.hpp"
 
 namespace fib::rpc
 {
@@ -9,6 +10,8 @@ namespace fib::rpc
     {
         const auto server_address = fmt::format("{}:{}", m_ip_address, m_port);
         m_builder.AddListeningPort(server_address, grpc::InsecureServerCredentials()).RegisterService(this);
+
+        log::debug("gRPC receiver successfully created.");
     }
 
     grpc_receiver::~grpc_receiver() noexcept { stop(); }
@@ -25,6 +28,7 @@ namespace fib::rpc
 
             m_server_task = std::thread{ [&]() { m_server->Wait(); } };
             m_running     = true;
+            log::debug("gRPC receiver successfully started.");
         }
     }
 
@@ -40,12 +44,15 @@ namespace fib::rpc
             }
 
             m_running = false;
+            log::debug("gRPC receiver successfully stopped.");
         }
     }
 
     grpc::Status grpc_receiver::fib(grpc::ServerContext* /*context*/, const fib_request* request, fib_reply* response)
     {
-        const auto number               = request->number();
+        const auto number = request->number();
+        log::debug("Request received for fib[{}]", number);
+
         auto [result, timestamp, count] = m_on_receive({ number });
 
         response->set_result(std::move(result));

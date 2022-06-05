@@ -2,6 +2,7 @@
 
 #include "fmt/core.h"
 #include "grpcpp/grpcpp.h"
+#include "logger.hpp"
 
 namespace fib::rpc
 {
@@ -10,6 +11,7 @@ namespace fib::rpc
           m_sender{ fib_grpc::NewStub(
               grpc::CreateChannel(fmt::format("{}:{}", m_ip_address, m_port), grpc::InsecureChannelCredentials())) }
     {
+        log::debug("gRPC sender successfully created.");
     }
 
     response grpc_sender::fib(request req)

@@ -21,4 +21,4 @@ namespace fib::po
         ("numbers", boost_po::value<std::vector<std::uint64_t>>(&numbers)->multitoken()->required(), "Numbers for calculation");
         // clang-format on
     }
-}
+}  // namespace fib::po

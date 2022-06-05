@@ -2,7 +2,7 @@
 
 #include "algorithm.hpp"
 #include "factory.hpp"
-#include "fmt/core.h"
+#include "logger.hpp"
 
 namespace fib
 {
@@ -10,10 +10,19 @@ namespace fib
         : m_receiver{ rpc::factory::make_receiver(rpc::type::grpc, std::move(address), port,
                                                   [&](auto req) { return get_fib(req); }) }
     {
+        log::debug("Fibonacci server successfully created.");
     }
 
-    void server::start() { m_receiver->start(); }
-    void server::stop() { m_receiver->stop(); }
+    void server::start()
+    {
+        m_receiver->start();
+        log::debug("Fibonacci server is successfully started.");
+    }
+    void server::stop()
+    {
+        m_receiver->stop();
+        log::debug("Fibonacci server is successfully stopped.");
+    }
 
     rpc::response server::get_fib(rpc::request req)
     {
@@ -28,6 +37,7 @@ namespace fib
             count += 1;
         }
 
+        log::debug("Sending response: fib: {} timestamp: {} count: {}", result, timestamp, count);
         return { result, timestamp, count };
     }
 }  // namespace fib

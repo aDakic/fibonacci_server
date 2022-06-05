@@ -28,7 +28,7 @@ namespace fib::po
         void add_options(boost_po::options_description& description);
     };
 
-    template <typename Options>
+    template<typename Options>
     inline bool parse(int argc, char* argv[], Options& opts)
     {
         boost_po::options_description description("Usage");

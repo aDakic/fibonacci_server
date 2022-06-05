@@ -11,10 +11,9 @@ int main(int argc, char* argv[])
         return EXIT_FAILURE;
     }
 
-    fib::log::setup(prog_ops.server.log_level);
-
     try
     {
+        fib::log::setup(prog_ops.server.log_level);
         fib::client client{ prog_ops.server.ip_address, prog_ops.server.port };
 
         for (const auto& num : prog_ops.numbers)

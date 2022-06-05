@@ -1,11 +1,10 @@
-#include <iostream>
 #include <atomic>
 #include <condition_variable>
 #include <csignal>
 #include <mutex>
 
-#include "program_options.hpp"
 #include "logger.hpp"
+#include "program_options.hpp"
 #include "server.hpp"
 
 std::atomic<bool> g_exit{ false };
@@ -27,10 +26,10 @@ int main(int argc, char* argv[])
         return EXIT_FAILURE;
     }
 
-    fib::log::setup(prog_ops.log_level);
-
     try
     {
+        fib::log::setup(prog_ops.log_level);
+
         fib::log::info("Starting fibonacci server...");
         fib::server server{ prog_ops.ip_address, prog_ops.port };
 

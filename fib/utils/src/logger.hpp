@@ -1,8 +1,9 @@
 #pragma once
 
-#include "spdlog/spdlog.h"
 #include <string_view>
 #include <utility>
+
+#include "spdlog/spdlog.h"
 
 namespace fib::log
 {
@@ -21,7 +22,6 @@ namespace fib::log
             case level::info: spdlog::set_level(spdlog::level::info); break;
             case level::debug: spdlog::set_level(spdlog::level::debug); break;
         }
-
     }
 
     inline void setup(std::string_view log_level)
@@ -30,31 +30,31 @@ namespace fib::log
         {
             spdlog::set_level(spdlog::level::err);
         }
-        else if(log_level == "info")
+        else if (log_level == "info")
         {
             spdlog::set_level(spdlog::level::info);
         }
-        else if(log_level == "debug")
+        else if (log_level == "debug")
         {
             spdlog::set_level(spdlog::level::debug);
         }
     }
 
-    template <typename Message, typename... Args>
+    template<typename Message, typename... Args>
     inline void error(Message&& msg, Args&&... args)
     {
         spdlog::error(std::forward<Message>(msg), std::forward<Args>(args)...);
     }
 
-    template <typename Message, typename... Args>
+    template<typename Message, typename... Args>
     inline void info(Message&& msg, Args&&... args)
     {
         spdlog::info(std::forward<Message>(msg), std::forward<Args>(args)...);
     }
 
-    template <typename Message, typename... Args>
+    template<typename Message, typename... Args>
     inline void debug(Message&& msg, Args&&... args)
     {
         spdlog::debug(std::forward<Message>(msg), std::forward<Args>(args)...);
     }
-}
+}  // namespace fib::log
