@@ -2,8 +2,4 @@
 
 #include <iostream>
 
-void client::hello()
-{
-    std::cout << "Hello from client.\nand ";
-    m_rpc.hello();
-}
+void client::hello() { std::cout << "Hello from client.\n"; }

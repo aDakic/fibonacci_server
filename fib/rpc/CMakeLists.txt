@@ -1,8 +1,9 @@
 set(sources
-    src/rpc.cpp)
+    src/rpc_receiver_base.cpp)
 
 set(headers
-    src/rpc.hpp)
+    src/rpc_types.hpp
+    src/rpc_receiver_base.hpp)
 
 add_library(rpc ${headers} ${sources})
 add_library(${PROJECT_NAME}::rpc ALIAS rpc)
