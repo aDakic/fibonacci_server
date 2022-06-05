@@ -15,6 +15,8 @@ namespace fib::rpc
     response grpc_sender::fib(request req)
     {
         fib_request request;
+        request.set_number(req.number);
+
         fib_reply reply;
         grpc::ClientContext context;
 

@@ -17,6 +17,7 @@ namespace fib
     private:
         rpc::response get_fib(rpc::request req);
 
+        static std::uint64_t calculate(std::uint64_t number) noexcept;
         std::unique_ptr<rpc::receiver_base> m_receiver;
     };
 
