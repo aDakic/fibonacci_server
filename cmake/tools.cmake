@@ -17,6 +17,8 @@ file(GLOB_RECURSE ALL_SOURCE_FILES
   ${PROJECT_SOURCE_DIR}/fib/client/src/*.cpp
   ${PROJECT_SOURCE_DIR}/fib/server/src/*.hpp
   ${PROJECT_SOURCE_DIR}/fib/server/src/*.cpp
+  ${PROJECT_SOURCE_DIR}/fib/utils/src/*.hpp
+  ${PROJECT_SOURCE_DIR}/fib/utils/src/*.cpp
   ${PROJECT_SOURCE_DIR}/fib-client/*.hpp
   ${PROJECT_SOURCE_DIR}/fib-client/*.cpp
   ${PROJECT_SOURCE_DIR}/fib-server/*.hpp

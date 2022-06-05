@@ -8,7 +8,7 @@ namespace fib
 
     std::string default_algo::calculate(std::uint64_t number)
     {
-        if (number < overflow_limit) // NOLINT: false positive
+        if (number < overflow_limit)  // NOLINT: false positive
         {
             return std::to_string(calculate<std::uint64_t>(number));
         }
