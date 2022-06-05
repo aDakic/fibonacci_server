@@ -1,5 +1,5 @@
 #include "client.hpp"
-#include "fmt/core.h"
+#include "logger.hpp"
 #include "program_options.hpp"
 
 int main(int argc, char* argv[])
@@ -11,6 +11,8 @@ int main(int argc, char* argv[])
         return EXIT_FAILURE;
     }
 
+    fib::log::setup(prog_ops.server.log_level);
+
     try
     {
         fib::client client{ prog_ops.server.ip_address, prog_ops.server.port };
@@ -18,12 +20,12 @@ int main(int argc, char* argv[])
         for (const auto& num : prog_ops.numbers)
         {
             const auto [result, timestamp, count] = client.fib(fib::rpc::request{ num });
-            fmt::print("fib({}): {} timestamp: {} count: {}\n", num, result, timestamp, count);
+            fib::log::info("fib({}): {} timestamp: {} count: {}\n", num, result, timestamp, count);
         }
     }
     catch (const std::exception& e)
     {
-        std::cerr << e.what() << '\n';
+        fib::log::error("{}", e.what());
         return EXIT_FAILURE;
     }
 

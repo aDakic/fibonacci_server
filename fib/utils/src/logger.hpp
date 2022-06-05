@@ -1,6 +1,7 @@
 #pragma once
 
 #include "spdlog/spdlog.h"
+#include <string_view>
 #include <utility>
 
 namespace fib::log
@@ -21,6 +22,22 @@ namespace fib::log
             case level::debug: spdlog::set_level(spdlog::level::debug); break;
         }
 
+    }
+
+    inline void setup(std::string_view log_level)
+    {
+        if (log_level == "error")
+        {
+            spdlog::set_level(spdlog::level::err);
+        }
+        else if(log_level == "info")
+        {
+            spdlog::set_level(spdlog::level::info);
+        }
+        else if(log_level == "debug")
+        {
+            spdlog::set_level(spdlog::level::debug);
+        }
     }
 
     template <typename Message, typename... Args>

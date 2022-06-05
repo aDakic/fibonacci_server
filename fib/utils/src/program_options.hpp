@@ -5,6 +5,7 @@
 #include <vector>
 
 #include "boost/program_options.hpp"
+#include "logger.hpp"
 
 namespace fib::po
 {
@@ -14,6 +15,7 @@ namespace fib::po
     {
         std::string ip_address;
         int port;
+        std::string log_level;
 
         void add_options(boost_po::options_description& description);
     };

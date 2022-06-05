@@ -7,7 +7,8 @@ namespace fib::po
         // clang-format off
         description.add_options()
         ("ip_address,ip", boost_po::value<std::string>(&ip_address)->default_value("localhost"), "Server IP address")
-        ("port,p", boost_po::value<int>(&port)->required(), "Server port");
+        ("port,p", boost_po::value<int>(&port)->required(), "Server port")
+        ("log_level,l", boost_po::value<std::string>(&log_level)->default_value("info"), "Log level: error, info, debug");
         // clang-format on
     }
 
