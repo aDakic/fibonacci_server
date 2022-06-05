@@ -1,8 +1,8 @@
-#include "fib_server.hpp"
+#include "server.hpp"
 
 int main()
 {
-    fib::fib_server server{ "localhost", 5000 };
+    fib::server server{ "localhost", 5000 };
     server.start();
 
     getchar();

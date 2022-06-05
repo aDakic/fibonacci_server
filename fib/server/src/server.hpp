@@ -6,10 +6,10 @@
 
 namespace fib
 {
-    class fib_server
+    class server
     {
     public:
-        fib_server(std::string address, int port);
+        server(std::string address, int port);
 
         void start();
         void stop();

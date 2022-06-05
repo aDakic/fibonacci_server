@@ -6,10 +6,10 @@
 
 namespace fib
 {
-    class fib_client
+    class client
     {
     public:
-        fib_client(std::string address, int port);
+        client(std::string address, int port);
         rpc::response fib(rpc::request req);
 
     private:

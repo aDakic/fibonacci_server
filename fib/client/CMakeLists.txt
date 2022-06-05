@@ -1,8 +1,8 @@
 set(sources
-    src/fib_client.cpp)
+    src/client.cpp)
 
 set(headers
-    src/fib_client.hpp)
+    src/client.hpp)
 
 add_library(client ${headers} ${sources})
 add_library(${PROJECT_NAME}::client ALIAS client)
