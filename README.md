@@ -1,5 +1,5 @@
 # fibonacci_server
-Small C++17 web server for calcualting fib(n), based on gRPC. Beside web sever, small client and library for further extensions are avaible.
+Small C++17 web server for calculating fib(n), based on gRPC. Besides web sever, small client and library for further extensions are available.
 
 ## Build
 Download dependencies:
