@@ -17,8 +17,7 @@ namespace fib
         void stop();
 
     private:
-        rpc::response get_fib(rpc::request req);
-        static std::uint64_t calculate(std::uint64_t number) noexcept;
+        rpc::response get_fib(const rpc::request req);
 
         std::unique_ptr<rpc::receiver_base> m_receiver;
         std::unordered_map<std::uint64_t, std::uint64_t> m_registry;

@@ -24,7 +24,7 @@ namespace fib
         log::debug("Fibonacci server is successfully stopped.");
     }
 
-    rpc::response server::get_fib(rpc::request req)
+    rpc::response server::get_fib(const rpc::request req)
     {
         auto result          = default_algo::calculate(req.number);
         const auto timestamp = m_timestamper.elapsed();

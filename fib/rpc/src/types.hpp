@@ -18,5 +18,5 @@ namespace fib::rpc
         std::uint64_t count;
     };
 
-    using rpc_callback = std::function<response(request)>;
+    using rpc_callback = std::function<response(const request)>;
 }  // namespace fib::rpc

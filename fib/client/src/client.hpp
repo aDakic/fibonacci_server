@@ -10,7 +10,7 @@ namespace fib
     {
     public:
         client(std::string address, int port);
-        rpc::response fib(rpc::request req);
+        rpc::response fib(const rpc::request req);
 
     private:
         std::unique_ptr<rpc::sender_base> m_sender;

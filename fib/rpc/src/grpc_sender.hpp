@@ -9,7 +9,7 @@ namespace fib::rpc
     {
     public:
         grpc_sender(std::string address, int port);
-        response fib(request req) override;
+        response fib(const request req) override;
         ~grpc_sender() noexcept override = default;
 
     private:

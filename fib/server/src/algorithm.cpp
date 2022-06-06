@@ -6,7 +6,7 @@ namespace fib
 {
     using big_int = boost::multiprecision::cpp_int;
 
-    std::string default_algo::calculate(std::uint64_t number)
+    std::string default_algo::calculate(const std::uint64_t number)
     {
         if (number < overflow_limit)  // NOLINT: false positive
         {

@@ -11,7 +11,7 @@ namespace fib
         log::debug("Fibonacci client successfully created.");
     }
 
-    rpc::response client::fib(rpc::request req)
+    rpc::response client::fib(const rpc::request req)
     {
         log::debug("Sending request: {}", req.number);
         return m_sender->fib(req);

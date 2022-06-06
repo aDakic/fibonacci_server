@@ -8,11 +8,11 @@ namespace fib
     class default_algo
     {
     public:
-        static std::string calculate(std::uint64_t number);
+        static std::string calculate(const std::uint64_t number);
 
     private:
         template<typename T>
-        static T calculate(std::uint64_t number)
+        static T calculate(const std::uint64_t number)
         {
             T a = 0;
             T b = 1;

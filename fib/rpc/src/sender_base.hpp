@@ -8,7 +8,7 @@ namespace fib::rpc
     {
     public:
         sender_base(std::string address, int port);
-        virtual response fib(request req) = 0;
+        virtual response fib(const request req) = 0;
         virtual ~sender_base()            = default;
 
     protected:

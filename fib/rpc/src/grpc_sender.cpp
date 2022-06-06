@@ -15,7 +15,7 @@ namespace fib::rpc
         log::debug("gRPC sender successfully created.");
     }
 
-    response grpc_sender::fib(request req)
+    response grpc_sender::fib(const request req)
     {
         fib_request request;
         request.set_number(req.number);
