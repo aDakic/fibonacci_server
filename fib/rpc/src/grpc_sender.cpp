@@ -1,5 +1,6 @@
 #include "grpc_sender.hpp"
 
+#include "exception.hpp"
 #include "fmt/core.h"
 #include "grpcpp/grpcpp.h"
 #include "logger.hpp"
@@ -26,7 +27,7 @@ namespace fib::rpc
 
         if (!status.ok())
         {
-            throw std::runtime_error{ fmt::format("{}:{}", status.error_code(), status.error_message()) };
+            throw exception{ "{}:{}", status.error_code(), status.error_message() };
         }
         else
         {

@@ -1,5 +1,6 @@
 #include "grpc_receiver.hpp"
 
+#include "exception.hpp"
 #include "fmt/core.h"
 #include "logger.hpp"
 
@@ -23,7 +24,7 @@ namespace fib::rpc
             m_server = m_builder.BuildAndStart();
             if (!m_server)
             {
-                throw std::runtime_error{ fmt::format("Unable to start gRPC server {}:{}.", m_ip_address, m_port) };
+                throw exception{ "Unable to start gRPC server {}:{}.", m_ip_address, m_port };
             }
 
             m_server_task = std::thread{ [&]() { m_server->Wait(); } };

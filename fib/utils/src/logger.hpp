@@ -3,6 +3,7 @@
 #include <string_view>
 #include <utility>
 
+#include "exception.hpp"
 #include "spdlog/spdlog.h"
 
 namespace fib::log
@@ -21,6 +22,7 @@ namespace fib::log
             case level::error: spdlog::set_level(spdlog::level::err); break;
             case level::info: spdlog::set_level(spdlog::level::info); break;
             case level::debug: spdlog::set_level(spdlog::level::debug); break;
+            default: throw exception{ "Unsupported log level" };
         }
     }
 
@@ -37,6 +39,10 @@ namespace fib::log
         else if (log_level == "debug")
         {
             spdlog::set_level(spdlog::level::debug);
+        }
+        else
+        {
+            throw exception{ "Unsupported log level" };
         }
     }
 
